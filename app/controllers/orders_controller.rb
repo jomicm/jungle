@@ -56,4 +56,13 @@ class OrdersController < ApplicationController
     order
   end
 
+  def order_items
+    @order_items ||= LineItem.where(order_id: params[:id]).map {|litem| { line_item:litem, product:Product.where(id:litem.product_id).first, order:Order.where(id:litem.order_id).first } }
+  end
+  helper_method :order_items
+  def order_total
+    @order_total ||= Order.where(id: params[:id]).first
+  end
+  helper_method :order_total
+
 end
