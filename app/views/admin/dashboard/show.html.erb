@@ -1,2 +1,20 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+
+<div class="jumbotron">
+  <h1>Dashboard</h1>
+  <div style="display: flex">
+    <div class="card" style="width: 18rem; border: 1px">
+      <div class="card-body">
+        <h5 class="card-title h3">Products</h5>
+        <p class="card-text">You have <strong><%= @product_total %></strong> available.</p>
+        <a href="/admin/products" class="btn btn-primary">Products</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem; border: 1px">
+      <div class="card-body">
+        <h5 class="card-title h3">Categories</h5>
+        <p class="card-text">You have <strong><%= @category_total %></strong> available.</p>
+        <a href="/admin/products" class="btn btn-primary">Products</a>
+      </div>
+    </div>
+  </div>
+</div>
