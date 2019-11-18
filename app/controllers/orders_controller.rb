@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.find(params[:id])    
+    # @line_items = LineItem.where(order_id: params[:id])
+    # @line_items = LineItem.joins(:products).where.not(products: { id: 'product_id' })
+    # @line_items = LineItem.joins(:products).where(products: { id: time_range })
   end
 
   def create
@@ -60,6 +63,7 @@ class OrdersController < ApplicationController
     @order_items ||= LineItem.where(order_id: params[:id]).map {|litem| { line_item:litem, product:Product.where(id:litem.product_id).first, order:Order.where(id:litem.order_id).first } }
   end
   helper_method :order_items
+
   def order_total
     @order_total ||= Order.where(id: params[:id]).first
   end
