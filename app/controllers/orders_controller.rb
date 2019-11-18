@@ -60,7 +60,10 @@ class OrdersController < ApplicationController
   end
 
   def order_items
-    @order_items ||= LineItem.where(order_id: params[:id]).map {|litem| { line_item:litem, product:Product.where(id:litem.product_id).first, order:Order.where(id:litem.order_id).first } }
+    # @order_items ||= LineItem.where(order_id: params[:id]).map {|litem| { line_item:litem, product:Product.where(id:litem.product_id).first, order:Order.where(id:litem.order_id).first } }
+    # p @order
+    # @products = @order.includes(:product).find(params[:id])
+    @order_items ||= LineItem.where(order_id: params[:id]).map {|litem| { line_item:litem, product: litem.product } }
   end
   helper_method :order_items
 
