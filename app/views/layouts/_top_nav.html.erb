@@ -51,7 +51,7 @@
           <% if current_user %>
             Signed in as <%= current_user.email %> &nbsp;|&nbsp; <%= link_to " Logout", '/logout' %>
           <% else %>
-            <%= link_to 'Login ', '/login' %> &nbsp;|&nbsp; <%= link_to ' Signup', '/signup' %>
+            <%= link_to 'Login ', '/login', class:'login-btn' %> &nbsp;|&nbsp; <%= link_to ' Signup', '/signup' %>
           <% end %>
         </div>
       </ul>
